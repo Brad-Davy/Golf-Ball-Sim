@@ -9,7 +9,7 @@ from Intergration_Methods_for_sweep import Euler, runge_kutta_2 as RK2, runge_ku
 import numpy as np
 import matplotlib
 matplotlib.use("TkAgg")
-from ttkthemes import ThemedStyle 
+#from ttkthemes import ThemedStyle 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
 import matplotlib.animation as animation
@@ -20,13 +20,12 @@ import threading
 
 global change
 change = False
-height = 1080
-width = 1960
+height = 1000
+width = 1200
 
 LARGE_FONT= ("Verdana", 12)
 
 
-style.use("seaborn-darkgrid")
 f = Figure(figsize=(22,7), dpi=100)
 #f.subplots_adjust(left = 0.05,right = 0.96, bottom = 0.04,top = 0.95)
 gs = matplotlib.gridspec.GridSpec(2, 3, wspace=0.1, hspace=0.25) # 2x2 grid
@@ -90,18 +89,18 @@ def animate(i):
     a.set_ylim(0,80)
     a.set_xlim(0,300)
     a.set_title('Trajectory')
-    a.set_xlabel('Distance \ M')
-    a.set_ylabel('Height \ M')
+    a.set_xlabel('Distance / M')
+    a.set_ylabel('Height / M')
     ax.set_ylim(-40,40)
     ax.set_xlim(0,300)
     ax.set_title('Trajectory')
-    ax.set_xlabel('Distance \ M')
-    ax.set_ylabel('Height \ M')
+    ax.set_xlabel('Distance / M')
+    ax.set_ylabel('Height / M')
     Cax.set_title('Coeficents')
-    Cax.set_xlabel('Distance \ M')
+    Cax.set_xlabel('Distance / M')
     Cax.set_ylabel('Cd   and   Cl')
     Vax.set_title('Velocitys')
-    Vax.set_xlabel('Distance \ M')
+    Vax.set_xlabel('Distance / M')
     Vax.set_ylabel('Velocity')
     
 
@@ -147,10 +146,6 @@ class GUI(tk.Tk):
     
 
         tk.Tk.config(self, menu=menubar)
-        style = ThemedStyle(container)
-        style.set_theme('radiance')
-
-
         self.frames = {}
 
         for F in (StartPage, Simulator, Settings):
